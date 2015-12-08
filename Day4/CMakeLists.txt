@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.0)
+add_compile_options(-std=c++1y)
+project (part1)
+project (part2)
+add_executable(part1 part1.cpp)
+add_executable(part2 part2.cpp)
+find_library(OPENSSL_LIB ssl $ENV{OPENSSL_LIB_PATH})
+target_link_libraries(part1 ${OPENSSL_LIB} -lcrypto -lssl)
+target_link_libraries(part2 ${OPENSSL_LIB} -lcrypto -lssl)
+
